@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <title>Matches</title>
+    
+    <style>
+        .win {
+            background-color: lightcoral;
+        }
+        .lose {
+            background-color: lightblue;
+        }
+        .tie {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Seed</th>
+                <th>P0</th>
+                <th>P1</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>
+                    <a href="visualizer?id={{ row.id }}" target="visualizer">
+                        {{ row.seed }}
+                    </a>
+                </td>
+                {% if row.status == 0 %}
+                <td class="win">
+                {% elif row.status == 1 %}
+                <td class="lose">
+                {% elif row.status == 2 %}
+                <td class="tie">
+                {% else %}
+                <td>
+                {% endif %}
+                    {{ row.player_id_0 }}: {{ row.player_name_0 }}
+                </td>
+                {% if row.status == 0 %}
+                <td class="lose">
+                {% elif row.status == 1 %}
+                <td class="win">
+                {% elif row.status == 2 %}
+                <td class="tie">
+                {% else %}
+                <td>
+                {% endif %}
+                    {{ row.player_id_1 }}: {{ row.player_name_1 }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

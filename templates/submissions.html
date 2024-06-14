@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <title>Submissions</title>
+</head>
+
+<body>
+    <h1>Submissions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Config</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in submissions %}
+            <tr>
+                <td>
+                    <a href="matches?id={{ row.id }}" target="matches">
+                        {{ row.date }}
+                    </a>
+                </td>
+                <td>
+                    <a href="config?id={{ row.id }}" target="_blank">
+                        Download
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

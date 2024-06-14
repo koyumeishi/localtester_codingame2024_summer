@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        .iframe-container {
+            height: 100%;
+        }
+
+        .iframe-container iframe {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content pure-g" style="height: 100%;">
+        <div class="pure-u-1-5" style="height: 100%;">
+            <div class="iframe-container">
+                <iframe src="submissions" name="submissions"></iframe>
+            </div>
+        </div>
+        <div class="pure-u-1-5" style="height: 100%;">
+            <div class="iframe-container">
+                <iframe src="matches" name="matches"></iframe>
+            </div>
+        </div>
+        <div class="pure-u-3-5" style="height: 100%;">
+            <div class="iframe-container">
+                <iframe src="visualizer" name="visualizer"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
