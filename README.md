@@ -6,7 +6,7 @@
 openjdk-17-jdk, python3.10
 
 ## usage
-build official codingame repository (see [jar_generator]())  
+build official codingame repository (see [jar_generator](jar_generator))  
 ```
 cd jar_generator
 docker compose up
@@ -15,12 +15,13 @@ docker compose up
 place `server/spring-2024-olympics-1.0-SNAPSHOT-jar-with-dependencies.jar`   
 
 ```
-mv output/*.jar ../server/
+cp output/*.jar ../server/
 ```
 
 initialize visualizer assets in `server/visualizer`  
 ```
 cd ../server
+pip install -r requirements.txt
 python generate_assets.py
 ```
 
@@ -29,7 +30,7 @@ start server
 python server.py
 ```
 
-open visualizer [localhost:8000/]() (default port is 8000. check the last line of server.py) 
+open visualizer [http://localhost:8000/]() (default port is 8000. check the last line of server.py) 
 
 make `game_config.yaml` and submit from submit pane OR run
 ```
