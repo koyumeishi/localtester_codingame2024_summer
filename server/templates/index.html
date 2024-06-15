@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body, html, iframe{
+            height: 100%;
+            margin: 0;
+        }
+
+        .content {
+            display: flex;
+            height: 100%;
+            gap: 10px; /* Add some space between the panes if needed */
+        }
+
+        .iframe-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .iframe-container iframe {
+            flex: 1;
+            border: none; /* Remove the border if not needed */
+        }
+
+        #left-pane {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #submissions-pane {
+            flex: 7;
+        }
+
+        #submit-pane {
+            flex: 4;
+        }
+
+        #center-pane {
+            flex: 1;
+        }
+
+        #right-pane {
+            flex: 5; /* Adjust this value to make the right pane larger */
+        }
+        /* Pane-specific styles */
+        .pane-title {
+            background-color: #282c34;
+            color: #61dafb;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div id="left-pane" class="iframe-container pane">
+            <div id="submissions-pane">
+                <div class="pane-title">Submissions <a href="submissions" target="submissions">🔃</a></div>
+                <iframe src="submissions" name="submissions"></iframe>
+            </div>
+            <div id="submit-pane">
+                <div class="pane-title">Submit</div>
+                <iframe src="submit" name="submit"></iframe>
+            </div>
+        </div>
+        <div class="iframe-container" id="center-pane">
+            <div class="pane-title">Games</div>
+            <iframe src="games" name="games"></iframe>
+        </div>
+        <div class="iframe-container" id="right-pane">
+            <div class="pane-title">Visualizer</div>
+            <iframe src="visualizer" name="visualizer"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>

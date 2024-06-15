@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Submissions</title>
+        
+    <style>
+
+        a {
+            color: rgb(236, 156, 51)
+        }
+        a:visited {
+            color: rgb(224, 218, 182)
+        }
+        body {
+            background-color: #282c34;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px;
+            margin: 10px;
+            overflow-y: auto;
+            height: 90vh;  /* Adjust this value as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>Submissions</h1> -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Config</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in submissions %}
+            <tr>
+                <td>
+                    <a href="games?id={{ row.id }}" target="games">
+                        {{ row.date.strftime('%Y-%m-%d %H:%M') }}
+                    </a>
+                </td>
+                <td>
+                    <a href="config?id={{ row.id }}" target="_blank">
+                        Download
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+services:
+    myapp:
+        build: .
+        volumes:
+            - ./output:/output
+        command: /bin/bash -c "cp CodinGameChallenge/*.jar output/"
