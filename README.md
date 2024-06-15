@@ -30,7 +30,7 @@ start server
 python server.py
 ```
 
-open visualizer [http://localhost:8000/]() (default port is 8000. check the last line of server.py) 
+open visualizer [localhost:8000/](localhost:8000/) (default port is 8000. check the last line of server.py) 
 
 make `game_config.yaml` and submit from submit pane OR run
 ```
