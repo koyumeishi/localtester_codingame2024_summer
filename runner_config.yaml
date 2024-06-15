@@ -1,0 +1,26 @@
+threads: 2 # num processing threads ( cpu / players ? )
+level: 3   # league level (1,2,3...). see src/java/com/codingame/game/Referee.java for details. Wood2 => 1, Wood1 => 2, Silver => 3
+seed: 100  # game seed. [seed..seed+games]  
+games: 5   # number of games for each player pairs
+description: ''
+
+# match mode
+#   all: round-robin tournament. for each (i<j): (player_i vs player_j) x games
+#   vs0 # player[0] vs (other players combination)
+mode: all
+# mode: vs0
+
+# player list
+# the first player is treated as `player 0`
+players:
+- name: A # bot name
+  exec: python a.py # execution command
+  description: ''
+
+- name: B
+  exec: python a.py
+  description: ''
+
+- name: C
+  exec: python a.py
+  description: ''

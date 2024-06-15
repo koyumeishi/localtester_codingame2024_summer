@@ -36,7 +36,11 @@ class Game:
         return self.game.getJSONResult()
 
 
-def run_single_game(seed: int, level: int, players: list[Player]):
+def run_game(seed: int, level: int, players: list[Player]):
+    '''
+    run a single game
+    returns result json
+    '''
     g = Game(seed, level, players)
     g.simulate()
     return g.getJSON()
@@ -48,9 +52,10 @@ def generate_assets():
     Executed only on the first run.
     """
     # dummy game
-    px = Player("A", 'python -c "for i in range(300): print(\'L\')"', "")
-    py = Player("B", 'python -c "for i in range(300): print(\'U\')"', "")
-    pz = Player("C", 'python -c "for i in range(300): print(\'R\')"', "")
+    px = Player("A", 'python -c "print(\'LEFT\' * 200)"', "")
+    py = Player("B", 'python -c "print(\'RIGHT\' * 200)"', "")
+    pz = Player("C", 'python -c "print(\'UP\' * 200)"', "")
+
     players = [px, py, pz]
     try:
         game = Game(0, 1, players)
@@ -68,6 +73,24 @@ def generate_assets():
     print(f'visualizer exported into ./visualizer')
 
 
-def get_game_scores(jsons: str) -> tuple[int,int]:
+def get_game_scores(jsons: str):
+    '''
+    getscores for each player of the game
+    '''
     scores = json.loads(jsons)['scores']
-    return (scores['0'], scores['1'])
+    return (scores)
+
+def get_game_ranks(jsons: str) -> list[int]:
+    '''
+    get ranks for each player of the game
+    '''
+    scores = get_game_scores(jsons)
+    ranks = [0, 0, 0]
+    for i in range(3):
+        for j in range(3):
+            if i != j:
+                if scores[str(i)] < scores[str(j)]:
+                    ranks[i] += 1
+
+    print(ranks)
+    return ranks
